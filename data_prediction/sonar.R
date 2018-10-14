@@ -87,9 +87,7 @@ for(i in 1:N_essais)
   X.app <- X.proj[-tst,]
   z.app <- z[-tst]
   fit.cbn <- naiveBayes(y = as.factor(z.app), x=X.app)
-  # fit.cbn <- naiveBayes(as.factor(Z)~.-X, data=data[-tst,])
   pred.cbn <- predict(fit.cbn, newdata=X.tst)
-  # pred.cbn <- predict(fit.cbn, newdata=data[tst,1:(p+1)])
   err.cbn <- err.cbn + mean(pred.cbn!=z.tst)/N_essais
   min.cbn <- min(min.cbn,mean(pred.cbn!=z.tst))
   max.cbn <- max(max.cbn,mean(pred.cbn!=z.tst))
